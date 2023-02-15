@@ -4,9 +4,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/06b1d3321b.js" crossorigin="anonymous"></script>
     <title>Weather</title>
 <script defer src="main.js"></script></head>
 <body>
-    
+    <div class="container">
+        <header>
+            <div class="header-logo">
+                <i class="fa-sharp fa-solid fa-sun"></i>
+            </div>
+            <div class="header-title">
+                <h1>Weather</h1>
+            </div>
+        </header>
+        <section class="weather">
+            
+            <div class="weather-top">
+                <div class="toggle">
+                    <i class="fa-sharp fa-solid fa-toggle-on"></i>
+                    <!-- <i class="fa-sharp fa-solid fa-toggle-off"></i> -->
+                    <p>°C</p>
+                </div>
+                <div class="search">
+                    <input type="search" id="search" name="q">
+                    <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="weather-display">
+                    <div class="weather-city-name">
+                        Amsterdam
+                    </div>
+                    <div class="weather-date">
+                        Today 17:30
+                    </div>
+                    <div class="weather-temp">
+                        32°C
+                    </div>
+                    <div class="weather-description">
+                        Cloudy
+                        <i class="fa-sharp fa-solid fa-cloud"></i>
+                    </div>
+                    <div class="weather-display-wrapper">
+                        <div class="weather-pressure">
+                            1998hpa
+                        </div>
+                        <div class="weather-humidity">
+                            32%
+                        </div>
+                        <div class="weather-wind-spead">
+                            69km/h
+                        </div>
+                    </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
