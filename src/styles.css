@@ -12,7 +12,6 @@ html, body {
     background-color: #2e3769;
 	font-family: Poppins, sans-serif;
 	min-height: 100vh;
-
 }
 
 
@@ -59,6 +58,7 @@ section {
 	padding: 3rem 1rem;
 }
 
+
 .toggle, .search {
 	display: flex;
 	align-items: center;
@@ -67,6 +67,7 @@ section {
 	font-size: 2rem;
 }
 
+
 .search {
 	font-size: 1rem;
 }
@@ -74,6 +75,7 @@ section {
 input {
 	font-family: Poppins, sans-serif;
 	height: 2rem;
+	padding-left: 0.5rem;
 	border: 2px solid #ffffff ;
 	max-width: 10rem;
 	border-radius: 10px;
@@ -81,7 +83,30 @@ input {
 
 input:focus {
 	outline-color: #2e3769 ;
+	box-shadow: 0px 3px 10px #242323;
 }
+
+.search-button {
+	border: none;
+	background: transparent;
+	padding: 0px 5px;
+	border-radius: 5px;
+	font-size: 1.65rem;
+	color: #ffffff;
+	cursor: pointer;
+	transition: all 0.25s ease;
+	/* background-color: #ffffff;
+	color: #47518b; */
+}
+
+.search-button:hover {
+	background-color: #ffffff;
+	color: #47518b;
+	box-shadow: 0px 3px 10px #242323;
+	border-radius: 15px;
+	line-height: 40px;
+}
+
 
 .weather {
 	background-color: #47518b;
