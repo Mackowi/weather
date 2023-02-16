@@ -23,46 +23,49 @@
         <section class="weather">
             
             <div class="weather-top">
-                <div class="toggle">
-                    <div class="toggle-switch">
-                        <i class="fa-sharp fa-solid fa-toggle-on"></i>
+                <div class="toggle" id="toggle">
+                    <div class="toggle-switch" >
+                        <i class="fa-sharp fa-solid fa-toggle-on" id="toggle-icon"></i>
                         <!-- <i class="fa-sharp fa-solid fa-toggle-off"></i> -->
                     </div>
-                    <p>°C</p>
+                    <p id="toggle-unit">°C</p>
                 </div>
                 <div class="search">
-                    <input type="search" id="search" name="q" placeholder="Search">
-                    <button class="search-button">
-                        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-                    </button>
+                    <form class="search-form" id="search-form" novalidate>
+                        <input id="search" name="q" placeholder="Search" required type="text" minlength="3" pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$">
+                        <button class="search-button" id="search-button">
+                            <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                    <span class="error"></span>
                 </div>
             </div>
-            <div class="weather-display">
-                    <div class="weather-city-name">
-                        Amsterdam
+            <!-- <div class="weather-display" id="weather-display">
+                <div class="weather-city-name">
+                    Amsterdam
+                </div>
+                <div class="weather-date">
+                    Today 17:30
+                </div>
+                <div class="weather-temp">
+                    32°C
+                </div>
+                <div class="weather-description">
+                    Cloudy
+                    <i class="fa-sharp fa-solid fa-cloud"></i>
+                </div>
+                <div class="weather-display-wrapper">
+                    <div class="weather-pressure">
+                        1998hpa
                     </div>
-                    <div class="weather-date">
-                        Today 17:30
+                    <div class="weather-humidity">
+                        32%
                     </div>
-                    <div class="weather-temp">
-                        32°C
+                    <div class="weather-wind-spead">
+                        69km/h
                     </div>
-                    <div class="weather-description">
-                        Cloudy
-                        <i class="fa-sharp fa-solid fa-cloud"></i>
-                    </div>
-                    <div class="weather-display-wrapper">
-                        <div class="weather-pressure">
-                            1998hpa
-                        </div>
-                        <div class="weather-humidity">
-                            32%
-                        </div>
-                        <div class="weather-wind-spead">
-                            69km/h
-                        </div>
-                    </div>
-            </div>
+                </div>
+            </div> -->
         </section>
     </div>
 </body>
