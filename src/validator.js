@@ -1,4 +1,8 @@
 import { getLocation, getWeather } from "./main";
+import DomHandler from './domHandler';
+import { displayedUnit } from './domHandler';
+
+
 export const Validator = (() => {
 
     const searchForm = document.querySelector('#search-form');
@@ -8,7 +12,7 @@ export const Validator = (() => {
     const initValidator = () => {
         searchForm.addEventListener('submit', handleSubmit);
         searchField.addEventListener('input', handleInput);
-      }
+    }
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -16,18 +20,30 @@ export const Validator = (() => {
             showError();
         } else {
             //send to api
-            console.log(searchField.value);
             let cityName = searchField.value;
             let location = await getLocation(cityName);
+            if (!location) {
+                console.log('show error')
+                showError(true)
+                return;
+            }
             let weatherData = await getWeather(location);
+            let temp = null;
+            if (displayedUnit == 'F') {
+                temp = kelToFahr(weatherData.main.temp)
+            } else {
+                temp = kelToCel((weatherData.main.temp))
+            }
             let weather = {
-                temp: parseInt(weatherData.main.temp),
+                cityName: cityName,
+                temp: temp,
                 description: weatherData.weather[0].main,
                 pressure: weatherData.main.pressure,
                 humidity: weatherData.main.humidity,
                 wind: parseInt(weatherData.wind.speed),
             };
-            console.log(weather);
+            await DomHandler.clearScreen();
+            DomHandler.createWeatherDisplay(weather);
             searchForm.reset();
         }
     }
@@ -40,16 +56,25 @@ export const Validator = (() => {
         }
     }
     
-    const showError = () => {
+    const showError = (notFound = false) => {
         if (searchField.validity.valueMissing) {
             searchFieldError.textContent = '';
-          }
-        if (searchField.validity.patternMismatch) {
+        } else if (searchField.validity.patternMismatch) {
             searchFieldError.textContent = `City name shouldn't consist any numbers or symbols.`;
         }
-         else if (searchField.validity.tooShort) {
+        else if (searchField.validity.tooShort) {
             searchFieldError.textContent = 'City name should be at least 3 characters long.';
-        } 
+        } else if (notFound) {
+            searchFieldError.textContent = 'City not founded.';
+        }
+    }
+
+    const kelToCel = (value) => {
+        return parseFloat(value - 273.15).toFixed(0);
+    }
+
+    const kelToFahr = (value) => {
+        return parseFloat(1.8 * (value - 273.15) + 32).toFixed(0);
     }
 
     return {

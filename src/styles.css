@@ -157,7 +157,7 @@ input:focus {
 	font-weight: 500;
 	opacity: 100%;
 	box-shadow: 0px 3px 10px #242323;
-	animation: fadeIn 0.2s 1 linear;
+	animation: fadeIn 0.5s 1 linear;
 }
 
 @keyframes fadeIn {
@@ -179,7 +179,7 @@ input:focus {
 
 .fadeOut {
 	opacity: 0;
-	animation: fadeOut 0.2s 1 linear;
+	animation: fadeOut 0.5s 1 linear;
 }
 
 @keyframes fadeOut {

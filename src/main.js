@@ -4,23 +4,35 @@ import { Validator } from './validator';
 
 const apiKey = '9bc645f876eb2f0d2cc1eaaca24d7612';
 const limit = 5;
-const time = 'current';
+const initWeatherData = {
+    cityName: 'Niger',
+    temp: 9,
+    description: 'Clouds',
+    pressure: 1019,
+    humidity: 54,
+    wind: 32,
+}
 
-DomHandler.createWeatherDisplay();
+DomHandler.createWeatherDisplay(initWeatherData);
+// setTimeout(() => {
+//     DomHandler.populateScreen();
+// }, 500);
 Validator.init();
+
+
 
 export async function getLocation(city) {
     const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${limit}&appid=${apiKey}`, {mode: 'cors'});
     const cityData = await response.json();
-    if (!cityData) {
-        throw Error('Missing city data');
+    if (!cityData.length) {
+        return false;
     }
     const location = {
         lon: cityData[0].lon,
         lat: cityData[0].lat
     }
 
-    // console.log(cityData[0])
+    // console.log(cityData)
     // console.log(location)
 
     return location
