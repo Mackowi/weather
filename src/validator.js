@@ -1,6 +1,6 @@
-import { getLocation, getWeather } from "./main";
-import DomHandler from './domHandler';
-import { displayedUnit } from './domHandler';
+import { getLocation, getWeather } from "./main.js";
+import DomHandler from './domHandler.js';
+import { displayedUnit } from './domHandler.js';
 
 
 export const Validator = (() => {

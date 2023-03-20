@@ -1,6 +1,6 @@
-import './styles.css';
-import DomHandler from './domHandler';
-import { Validator } from './validator';
+// import './styles.css';
+import DomHandler from './domHandler.js';
+import { Validator } from './validator.js';
 
 const apiKey = '9bc645f876eb2f0d2cc1eaaca24d7612';
 const limit = 5;
