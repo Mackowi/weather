@@ -5,7 +5,7 @@ import { Validator } from './validator';
 const apiKey = '9bc645f876eb2f0d2cc1eaaca24d7612';
 const limit = 5;
 const initWeatherData = {
-    cityName: 'Niger',
+    cityName: 'Amsterdam',
     temp: 9,
     description: 'Clouds',
     pressure: 1019,
